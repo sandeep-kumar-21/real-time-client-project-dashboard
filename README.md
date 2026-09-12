@@ -18,7 +18,6 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 > **Live Production Dashboard**: [https://real-time-client-project-dashboard-kappa.vercel.app](https://real-time-client-project-dashboard-kappa.vercel.app)  
-> **Production API & WebSockets**: [https://real-time-client-project-dashboard-7w6t.onrender.com](https://real-time-client-project-dashboard-7w6t.onrender.com)
 
 An enterprise-grade, multi-tenant client project management and real-time operations dashboard engineered for **Velozity Global Solutions Technical Hiring Assessment**. The platform features strict API-level Role-Based Access Control (Admin, Project Manager, Developer), bi-directional WebSocket event streaming with room partitioning, persistent background overdue deliverable escalation using BullMQ and Redis, and high data-density responsive interfaces.
 
