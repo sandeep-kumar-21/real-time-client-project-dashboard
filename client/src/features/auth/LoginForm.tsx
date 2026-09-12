@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "./authStore";
 import { authApi } from "../../api/auth.api";
 import { Input } from "../../components/ui/Input";
@@ -32,9 +32,6 @@ export const LoginForm: React.FC = () => {
 
   const { setAuth } = useAuthStore();
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = (location.state as any)?.from?.pathname || "/";
 
   const handleLogin = async (e?: React.FormEvent, customEmail?: string, customPassword?: string) => {
     if (e) e.preventDefault();
@@ -57,7 +54,8 @@ export const LoginForm: React.FC = () => {
 
       setAuth(user, accessToken);
       toast.success(`Welcome back, ${user.name}!`);
-      navigate(from, { replace: true });
+      // Always redirect to Dashboard ("/") on login to land on role-specific hub
+      navigate("/", { replace: true });
     } catch (err: any) {
       const msg = err.response?.data?.message || "Invalid credentials. Please try again.";
       setErrorMessage(msg);

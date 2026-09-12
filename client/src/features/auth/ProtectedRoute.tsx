@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuthStore } from "./authStore";
 import { Skeleton } from "../../components/ui/Skeleton";
 
@@ -9,7 +9,6 @@ interface ProtectedRouteProps {
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { isAuthenticated, isInitializing, checkAuth } = useAuthStore();
-  const location = useLocation();
 
   useEffect(() => {
     if (isInitializing) {
@@ -38,7 +37,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return <>{children}</>;
