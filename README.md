@@ -1,7 +1,6 @@
 # Velozity - Real-Time Client Project Dashboard
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel&logoColor=white)](https://real-time-client-project-dashboard-kappa.vercel.app)
-[![API Status](https://img.shields.io/badge/API-Render%20Live-brightgreen?logo=render&logoColor=white)](https://real-time-client-project-dashboard-7w6t.onrender.com/health)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Sandeep%20Kumar-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sandeep-kumar-s21)
 [![Email](https://img.shields.io/badge/Email-sandeepkumarnitrr%40gmail.com-D14836?logo=gmail&logoColor=white)](mailto:sandeepkumarnitrr@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-sandeep--kumar--21-181717?logo=github&logoColor=white)](https://github.com/sandeep-kumar-21)
@@ -20,8 +19,6 @@
 [![Vitest](https://img.shields.io/badge/Tests-54%20Passing-6E9F18?logo=vitest&logoColor=white)](https://vitest.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-> **Live Production Dashboard**: [https://real-time-client-project-dashboard-kappa.vercel.app](https://real-time-client-project-dashboard-kappa.vercel.app)  
-> **Production API & WebSockets**: [https://real-time-client-project-dashboard-7w6t.onrender.com](https://real-time-client-project-dashboard-7w6t.onrender.com)
 > **Live Application**: [https://real-time-client-project-dashboard-kappa.vercel.app](https://real-time-client-project-dashboard-kappa.vercel.app)  
 > **Candidate**: Sandeep Kumar | **Email**: [sandeepkumarnitrr@gmail.com](mailto:sandeepkumarnitrr@gmail.com) | **LinkedIn**: [https://www.linkedin.com/in/sandeep-kumar-s21](https://www.linkedin.com/in/sandeep-kumar-s21)
 
@@ -31,8 +28,6 @@ An enterprise-grade, multi-tenant client project management and real-time operat
 
 ## Candidate Information
 
-- **Live Production Application**: [https://real-time-client-project-dashboard-kappa.vercel.app](https://real-time-client-project-dashboard-kappa.vercel.app)
-- **Production Backend API Base**: [https://real-time-client-project-dashboard-7w6t.onrender.com](https://real-time-client-project-dashboard-7w6t.onrender.com)
 - **Live Application**: [https://real-time-client-project-dashboard-kappa.vercel.app](https://real-time-client-project-dashboard-kappa.vercel.app)
 - **Candidate Name**: Sandeep Kumar
 - **Email**: [sandeepkumarnitrr@gmail.com](mailto:sandeepkumarnitrr@gmail.com)
