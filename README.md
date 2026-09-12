@@ -1,5 +1,7 @@
 # Velozity - Real-Time Client Project Dashboard
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel&logoColor=white)](https://real-time-client-project-dashboard-kappa.vercel.app)
+[![API Status](https://img.shields.io/badge/API-Render%20Live-brightgreen?logo=render&logoColor=white)](https://real-time-client-project-dashboard-7w6t.onrender.com/health)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
@@ -15,12 +17,17 @@
 [![Vitest](https://img.shields.io/badge/Tests-54%20Passing-6E9F18?logo=vitest&logoColor=white)](https://vitest.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+> **Live Production Dashboard**: [https://real-time-client-project-dashboard-kappa.vercel.app](https://real-time-client-project-dashboard-kappa.vercel.app)  
+> **Production API & WebSockets**: [https://real-time-client-project-dashboard-7w6t.onrender.com](https://real-time-client-project-dashboard-7w6t.onrender.com)
+
 An enterprise-grade, multi-tenant client project management and real-time operations dashboard engineered for **Velozity Global Solutions Technical Hiring Assessment**. The platform features strict API-level Role-Based Access Control (Admin, Project Manager, Developer), bi-directional WebSocket event streaming with room partitioning, persistent background overdue deliverable escalation using BullMQ and Redis, and high data-density responsive interfaces.
 
 ---
 
 ## Candidate Information
 
+- **Live Production Application**: [https://real-time-client-project-dashboard-kappa.vercel.app](https://real-time-client-project-dashboard-kappa.vercel.app)
+- **Production Backend API Base**: [https://real-time-client-project-dashboard-7w6t.onrender.com](https://real-time-client-project-dashboard-7w6t.onrender.com)
 - **Candidate Name**: Sandeep Kumar
 - **Email**: [sandeepkumarnitrr@gmail.com](mailto:sandeepkumarnitrr@gmail.com)
 - **LinkedIn**: [https://www.linkedin.com/in/sandeep-kumar-s21](https://www.linkedin.com/in/sandeep-kumar-s21)
