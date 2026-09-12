@@ -13,7 +13,7 @@ import { getSocket } from "../../lib/socket";
 import type { AdminDashboardMetrics, PmDashboardMetrics, DeveloperDashboardMetrics } from "../../types/dashboard";
 
 export const DashboardPage: React.FC = () => {
-  const { accessToken } = useAuthStore();
+  const { user, accessToken } = useAuthStore();
   const queryClient = useQueryClient();
 
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
@@ -21,18 +21,19 @@ export const DashboardPage: React.FC = () => {
   const [isClientModalOpen, setIsClientModalOpen] = useState(false);
 
   const { data: metrics, isLoading, error, refetch } = useQuery({
-    queryKey: ["dashboard", "metrics"],
+    queryKey: ["dashboard", "metrics", user?.id],
     queryFn: () => dashboardApi.getMetrics(),
     staleTime: 30000,
+    enabled: !!user?.id,
   });
 
   // Socket listener to invalidate dashboard metrics when any task/project event occurs
   useEffect(() => {
-    if (!accessToken) return;
+    if (!accessToken || !user?.id) return;
     const socket = getSocket(accessToken);
 
     const handleInvalidate = () => {
-      queryClient.invalidateQueries({ queryKey: ["dashboard", "metrics"] });
+      queryClient.invalidateQueries({ queryKey: ["dashboard", "metrics", user.id] });
     };
 
     socket.on("task:status_changed", handleInvalidate);
@@ -48,9 +49,9 @@ export const DashboardPage: React.FC = () => {
       socket.off("task:overdue_flagged", handleInvalidate);
       socket.off("project:created", handleInvalidate);
     };
-  }, [accessToken, queryClient]);
+  }, [accessToken, user?.id, queryClient]);
 
-  if (isLoading) {
+  if (isLoading || (metrics && user && metrics.role !== user.role)) {
     return (
       <div className="space-y-6">
         <div className="space-y-2">
@@ -84,7 +85,7 @@ export const DashboardPage: React.FC = () => {
 
   return (
     <div>
-      {metrics.role === "ADMIN" && (
+      {metrics.role === "ADMIN" && user?.role === "ADMIN" && (
         <AdminDashboard
           metrics={metrics as AdminDashboardMetrics}
           onOpenNewProject={() => setIsProjectModalOpen(true)}
@@ -92,7 +93,7 @@ export const DashboardPage: React.FC = () => {
         />
       )}
 
-      {metrics.role === "PROJECT_MANAGER" && (
+      {metrics.role === "PROJECT_MANAGER" && user?.role === "PROJECT_MANAGER" && (
         <PmDashboard
           metrics={metrics as PmDashboardMetrics}
           onOpenNewTask={() => setIsTaskModalOpen(true)}
@@ -100,7 +101,7 @@ export const DashboardPage: React.FC = () => {
         />
       )}
 
-      {metrics.role === "DEVELOPER" && (
+      {metrics.role === "DEVELOPER" && user?.role === "DEVELOPER" && (
         <DeveloperDashboard
           metrics={metrics as DeveloperDashboardMetrics}
           onTaskUpdated={() => refetch()}

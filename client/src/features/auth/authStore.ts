@@ -2,6 +2,7 @@ import { create } from "zustand";
 import type { User } from "../../types/auth";
 import { setAccessToken, apiClient } from "../../api/client";
 import { disconnectSocket, getSocket } from "../../lib/socket";
+import { queryClient } from "../../lib/queryClient";
 
 interface AuthState {
   user: User | null;
@@ -21,6 +22,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   isInitializing: true,
 
   setAuth: (user: User, token: string) => {
+    queryClient.clear();
     setAccessToken(token);
     getSocket(token); // initialize authenticated socket
     set({
@@ -32,6 +34,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   },
 
   clearAuth: () => {
+    queryClient.clear();
     setAccessToken(null);
     disconnectSocket();
     set({
