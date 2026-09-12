@@ -92,7 +92,13 @@ export class TasksService {
           userId: user.id,
           fromStatus: null,
           toStatus: TaskStatus.TODO,
-          message: formatActivityMessage(actorName, task.title, null, TaskStatus.TODO),
+          message: formatActivityMessage(
+            actorName,
+            task.title,
+            null,
+            TaskStatus.TODO,
+            task.assignedTo?.name
+          ),
         },
         include: {
           user: {

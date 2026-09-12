@@ -19,12 +19,16 @@ export const formatActivityMessage = (
   userName: string,
   taskTitle: string,
   fromStatus: TaskStatus | null | undefined,
-  toStatus: TaskStatus | null | undefined
+  toStatus: TaskStatus | null | undefined,
+  assigneeName?: string | null
 ): string => {
   const fromFormatted = formatStatus(fromStatus);
   const toFormatted = formatStatus(toStatus);
 
   if (!fromStatus) {
+    if (assigneeName) {
+      return `${userName} created task "${taskTitle}" in ${toFormatted} and assigned to ${assigneeName}`;
+    }
     return `${userName} created task "${taskTitle}" in ${toFormatted}`;
   }
 
