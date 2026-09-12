@@ -16,26 +16,26 @@ const router = Router();
 // All client endpoints require authentication
 router.use(requireAuth);
 
-// Admin & PM can view clients
+// Admin & PM can view client list (for project creation assignment)
 router.get("/", requireRole("ADMIN", "PROJECT_MANAGER"), listClientsHandler);
-router.get("/:id", requireRole("ADMIN", "PROJECT_MANAGER"), getClientByIdHandler);
 
-// Admin & PM can create/update clients
+// Only Admin can manage clients (details, create, update, delete)
+router.get("/:id", requireRole("ADMIN"), getClientByIdHandler);
+
 router.post(
   "/",
-  requireRole("ADMIN", "PROJECT_MANAGER"),
+  requireRole("ADMIN"),
   validate({ body: createClientSchema }),
   createClientHandler
 );
 
 router.put(
   "/:id",
-  requireRole("ADMIN", "PROJECT_MANAGER"),
+  requireRole("ADMIN"),
   validate({ body: updateClientSchema }),
   updateClientHandler
 );
 
-// Only Admin can delete clients
 router.delete("/:id", requireRole("ADMIN"), deleteClientHandler);
 
 export const clientRoutes = router;

@@ -49,11 +49,11 @@ export const App: React.FC = () => {
               }
             />
 
-            {/* Clients Management (Admin & PM only; Devs restricted) */}
+            {/* Clients Management (Admin only: Assessment Requirement #1) */}
             <Route
               path="clients"
               element={
-                <RoleGuard allowedRoles={["ADMIN", "PROJECT_MANAGER"]}>
+                <RoleGuard allowedRoles={["ADMIN"]}>
                   <ClientsPage />
                 </RoleGuard>
               }

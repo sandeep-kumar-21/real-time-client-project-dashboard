@@ -48,8 +48,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ onClose, className }) => {
       label: "Clients",
       to: "/clients",
       icon: Users,
-      // Assessment Requirement: Developer must not reach or see clients
-      visible: role === "ADMIN" || role === "PROJECT_MANAGER",
+      // Assessment Requirement: Only Admin can manage clients
+      visible: role === "ADMIN",
     },
     {
       label: "Users",
