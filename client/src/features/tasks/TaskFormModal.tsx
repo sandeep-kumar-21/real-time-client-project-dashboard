@@ -102,7 +102,7 @@ export const TaskFormModal: React.FC<TaskFormModalProps> = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Create New Sprint Task">
+    <Modal isOpen={isOpen} onClose={onClose} title="Create New Sprint Task" maxWidth="lg">
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input
           label="Task Title"

@@ -37,20 +37,20 @@ export const Modal: React.FC<ModalProps> = ({
 
   const maxWidthStyles = {
     sm: "max-w-sm",
-    md: "max-w-md",
-    lg: "max-w-lg",
+    md: "max-w-lg",
+    lg: "max-w-xl",
     xl: "max-w-2xl",
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs transition-opacity animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/50 backdrop-blur-xs transition-opacity animate-in fade-in duration-150">
       <div
         className={cn(
-          "w-full bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh] max-w-[95vw] sm:max-w-none animate-in zoom-in-95 duration-150",
+          "w-full bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh] mx-auto animate-in zoom-in-95 duration-150",
           maxWidthStyles[maxWidth]
         )}
       >
-        <div className="px-4 py-3.5 sm:px-5 sm:py-4 border-b border-slate-100 flex items-center justify-between shrink-0">
+        <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between shrink-0">
           <div>
             <h3 className="text-base font-semibold text-slate-900">{title}</h3>
             {description && <p className="text-xs text-slate-500 mt-0.5">{description}</p>}
@@ -58,12 +58,12 @@ export const Modal: React.FC<ModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
-        <div className="p-4 sm:p-5 overflow-y-auto flex-1">{children}</div>
+        <div className="p-5 overflow-y-auto flex-1">{children}</div>
       </div>
     </div>
   );
