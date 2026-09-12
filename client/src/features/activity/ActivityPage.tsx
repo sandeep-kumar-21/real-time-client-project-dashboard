@@ -31,6 +31,16 @@ export const ActivityPage: React.FC = () => {
     setLiveLogs([]);
   }, [selectedProjectId]);
 
+  // Join selected project room for focused real-time updates
+  useEffect(() => {
+    if (!accessToken || !selectedProjectId) return;
+    const socket = getSocket(accessToken);
+    socket.emit("join:project", selectedProjectId);
+    return () => {
+      socket.emit("leave:project", selectedProjectId);
+    };
+  }, [accessToken, selectedProjectId]);
+
   // Real-time live activity ingestion via WebSocket
   useEffect(() => {
     if (!accessToken) return;

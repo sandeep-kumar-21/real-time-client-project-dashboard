@@ -105,10 +105,10 @@ export class TasksService {
             select: { id: true, name: true, email: true, role: true },
           },
           task: {
-            select: { id: true, title: true, priority: true, status: true },
+            select: { id: true, title: true, priority: true, status: true, assignedToId: true },
           },
           project: {
-            select: { id: true, name: true },
+            select: { id: true, name: true, createdById: true },
           },
         },
       });
@@ -302,10 +302,10 @@ export class TasksService {
             select: { id: true, name: true, email: true, role: true },
           },
           task: {
-            select: { id: true, title: true, priority: true, status: true },
+            select: { id: true, title: true, priority: true, status: true, assignedToId: true },
           },
           project: {
-            select: { id: true, name: true },
+            select: { id: true, name: true, createdById: true },
           },
         },
       });
@@ -453,10 +453,10 @@ export class TasksService {
               select: { id: true, name: true, email: true, role: true },
             },
             task: {
-              select: { id: true, title: true, priority: true, status: true },
+              select: { id: true, title: true, priority: true, status: true, assignedToId: true },
             },
             project: {
-              select: { id: true, name: true },
+              select: { id: true, name: true, createdById: true },
             },
           },
         });

@@ -52,6 +52,16 @@ export const TasksPage: React.FC = () => {
     queryFn: () => projectsApi.list(),
   });
 
+  // Join project room if filtered by project for targeted real-time sync
+  useEffect(() => {
+    if (!accessToken || !filterParams.projectId) return;
+    const socket = getSocket(accessToken);
+    socket.emit("join:project", filterParams.projectId);
+    return () => {
+      socket.emit("leave:project", filterParams.projectId);
+    };
+  }, [accessToken, filterParams.projectId]);
+
   // Real-time socket event sync
   useEffect(() => {
     if (!accessToken) return;
